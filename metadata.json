@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Mar de Cheiro - Lavanderia Premium",
+  "description": "Uma landing page moderna para lavanderia self-service e premium, focada em conversão via WhatsApp com design clean e profissional.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
