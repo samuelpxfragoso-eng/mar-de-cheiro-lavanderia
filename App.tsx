@@ -44,7 +44,8 @@ const Button = ({
   onClick,
   href 
 }: { 
-  children: React.ReactNode; 
+  // Fix: changed children from mandatory to optional to avoid TypeScript errors when used in JSX without a children attribute
+  children?: React.ReactNode; 
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'accent' | 'success' | 'navy'; 
   className?: string;
   onClick?: () => void;
@@ -239,7 +240,7 @@ const Plans = () => {
   const plans = [
     {
       title: "Lavagem Avulsa",
-      description: "Ciclo de 60 minutos para cesto de até 10kg. Limpeza profunda com produtos OMO.",
+      description: "Ciclo de 60 minutos para cesto de até 10kg. Limpeza profunda with produtos OMO.",
       price: "17",
       cents: "50",
       unit: "cesto",
