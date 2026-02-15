@@ -24,8 +24,7 @@ import {
 } from 'lucide-react';
 import { NavItem, Differential, Plan, Testimonial, FAQItem, FabricCare } from './types';
 
-export const WHATSAPP_NUMBER = "5511999999999";
-export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20coleta!`;
+export const WHATSAPP_LINK = "https://wa.link/2b3779";
 export const GOOGLE_REVIEWS_LINK = "https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID";
 export const INSTAGRAM_LINK = "https://www.instagram.com/mardecheiro_lavanderia/";
 

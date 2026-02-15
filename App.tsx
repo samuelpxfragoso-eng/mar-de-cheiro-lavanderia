@@ -20,7 +20,9 @@ import {
   Wind,
   Medal,
   Gem,
-  HelpCircle
+  HelpCircle,
+  Heart,
+  Sparkles
 } from 'lucide-react';
 import { 
   NAV_ITEMS, 
@@ -44,7 +46,6 @@ const Button = ({
   onClick,
   href 
 }: { 
-  // Fix: changed children from mandatory to optional to avoid TypeScript errors when used in JSX without a children attribute
   children?: React.ReactNode; 
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'accent' | 'success' | 'navy'; 
   className?: string;
@@ -144,10 +145,7 @@ const Header = () => {
 const Hero = () => {
   return (
     <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Black overlay for content readability */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
-      
-      {/* Smoky transition overlay at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/40 to-transparent z-20 backdrop-blur-[2px]"></div>
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-white z-20 opacity-30"></div>
 
@@ -174,6 +172,81 @@ const Hero = () => {
           <Button variant="outline" className="text-lg px-10 py-4 border-white text-white hover:bg-white hover:text-blue-500 rounded-full" href="#structure">
             Conheça Nosso Espaço
           </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const PremiumService = () => {
+  return (
+    <section id="premium" className="py-24 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+          {/* Image Side */}
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-blue-100 rounded-[40px] transform -rotate-3 transition-transform group-hover:rotate-0 duration-500"></div>
+            <div className="relative rounded-[32px] overflow-hidden shadow-2xl border-4 border-white aspect-[4/5]">
+              <img 
+                src="https://bvubljssahqtzzeboeew.supabase.co/storage/v1/object/public/our/WhatsApp%20Image%202026-02-07%20at%2011.11.45%20PM%20(1).jpeg" 
+                alt="Serviço de organização premium Mar de Cheiro" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            {/* Floating Badge */}
+            <div className="absolute -bottom-6 -right-6 bg-[#2d3a82] text-white p-6 rounded-2xl shadow-xl max-w-[200px] hidden md:block animate-bounce-custom">
+              <Sparkles className="text-yellow-400 mb-2" size={24} />
+              <p className="font-bold text-sm leading-tight">Organização impecável feita por especialistas.</p>
+            </div>
+          </div>
+
+          {/* Text Side */}
+          <div>
+            <h3 className="text-blue-500 font-brand text-2xl mb-4">Exclusividade Mar de Cheiro</h3>
+            <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82] mb-8 leading-tight">
+              Lave, Seque e Receba <span className="text-blue-500">Tudo Dobrado</span>
+            </h2>
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10">
+              Cansado de ter que dobrar montanhas de roupas após a secagem? Na Mar de Cheiro, oferecemos o serviço <strong>Premium Assistido</strong>. Nossos colaboradores cuidam de cada peça com carinho, organizando tudo em cestos para que você só precise guardar no armário.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 bg-green-100 p-1 rounded-full"><CheckCircle2 size={18} className="text-green-600" /></div>
+                <div>
+                  <h4 className="font-bold text-[#2d3a82]">Produtos OMO e Comfort</h4>
+                  <p className="text-sm text-slate-500">Fragrância premium inclusa em cada ciclo.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 bg-green-100 p-1 rounded-full"><CheckCircle2 size={18} className="text-green-600" /></div>
+                <div>
+                  <h4 className="font-bold text-[#2d3a82]">Pronto em 60 minutos</h4>
+                  <p className="text-sm text-slate-500">Agilidade sem abrir mão da qualidade.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 bg-green-100 p-1 rounded-full"><CheckCircle2 size={18} className="text-green-600" /></div>
+                <div>
+                  <h4 className="font-bold text-[#2d3a82]">Toque Humano</h4>
+                  <p className="text-sm text-slate-500">Colaboradores treinados para cuidar das suas peças.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 bg-green-100 p-1 rounded-full"><CheckCircle2 size={18} className="text-green-600" /></div>
+                <div>
+                  <h4 className="font-bold text-[#2d3a82]">Organização VIP</h4>
+                  <p className="text-sm text-slate-500">Suas roupas separadas e dobradas com perfeição.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-start">
+              <Button variant="navy" className="rounded-xl px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1" href={WHATSAPP_LINK}>
+                Quero o Serviço Premium
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -334,7 +407,6 @@ const Plans = () => {
 const ScheduleCollection = () => {
   return (
     <section className="relative py-28 overflow-hidden flex items-center justify-center">
-      {/* Video Background Layer */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -345,7 +417,6 @@ const ScheduleCollection = () => {
         >
           <source src="https://bvubljssahqtzzeboeew.supabase.co/storage/v1/object/public/our/grok%20mar%20de%20cheiro.mp4" type="video/mp4" />
         </video>
-        {/* Overlay to darken and match branding colors slightly */}
         <div className="absolute inset-0 bg-[#e9eff5]/70 backdrop-blur-[2px]"></div>
       </div>
 
@@ -371,13 +442,11 @@ const ScheduleCollection = () => {
 const AboutUs = () => {
   return (
     <section id="about" className="bg-[#f8fafc]">
-      {/* Introduction Block */}
       <div className="py-24 px-4 text-center">
         <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82] mb-6">Uma História de Cuidado e Frescor</h2>
         <p className="text-slate-500 text-xl">Descubra os pilares que tornam a Mar de Cheiro única.</p>
       </div>
 
-      {/* Essence Block */}
       <div className="py-24 px-4 text-center bg-white">
         <div className="max-w-4xl mx-auto">
           <h3 className="text-3xl md:text-5xl font-brand text-[#2d3a82] mb-8">Nossa Essência</h3>
@@ -387,7 +456,6 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Nature Commitment Block */}
       <div className="py-24 px-4 text-center bg-[#e9eff5]">
         <div className="max-w-4xl mx-auto">
           <h3 className="text-3xl md:text-5xl font-brand text-[#2d3a82] mb-8">Compromisso com a Natureza</h3>
@@ -397,7 +465,6 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Tech & Tradition Block */}
       <div className="py-24 px-4 text-center bg-white">
         <div className="max-w-4xl mx-auto">
           <h3 className="text-3xl md:text-5xl font-brand text-[#2d3a82] mb-8">Tecnologia e Tradição</h3>
@@ -448,11 +515,9 @@ const FabricCare = () => {
   return (
     <section className="py-24 bg-[#e9eff5]">
       <div className="container mx-auto px-4 text-center">
-        {/* Header */}
         <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82] mb-4">Cuidado para cada Tecido</h2>
         <p className="text-slate-500 text-lg mb-16">Selecione o tipo de tecido para ver nossas recomendações de tratamento.</p>
 
-        {/* Tabs Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto mb-16">
           {FABRIC_CARE_DATA.map((item, idx) => (
             <button
@@ -474,7 +539,6 @@ const FabricCare = () => {
           ))}
         </div>
 
-        {/* Content Area */}
         <div className="max-w-3xl mx-auto animate-fadeIn">
           <h3 className="text-2xl md:text-3xl font-bold text-[#2d3a82] mb-6">
             {currentData.title}
@@ -583,7 +647,6 @@ const Testimonials = () => {
       </div>
 
       <div className="container mx-auto px-4 relative max-w-7xl">
-        {/* Navigation Arrows */}
         <button 
           onClick={handlePrev}
           className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-10 z-10 p-3 bg-white rounded-full shadow-lg text-slate-400 hover:text-blue-500 transition-colors"
@@ -597,15 +660,12 @@ const Testimonials = () => {
           <ChevronRight size={24} />
         </button>
 
-        {/* Slider */}
         <div className="overflow-hidden">
           <div 
             ref={sliderRef}
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {/* We group them by 3 for desktop, 1 for mobile. For simplicity here, we'll use a responsive grid inside the slider flex */}
-            {/* chunking logic for precise sliding would be better, but let's use a standard grid layout that slides */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 min-w-full px-4">
               {TESTIMONIALS.slice(0, 3).map((item) => (
                 <div key={item.id} className="bg-white p-10 rounded-[20px] shadow-xl border border-slate-100 flex flex-col h-full">
@@ -628,7 +688,6 @@ const Testimonials = () => {
                 </div>
               ))}
             </div>
-            {/* Repeat for second page if exists */}
             {TESTIMONIALS.length > 3 && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 min-w-full px-4">
                 {TESTIMONIALS.slice(3, 6).map((item) => (
@@ -729,7 +788,7 @@ const Contact = () => {
 const Footer = () => {
   return (
     <footer className="bg-slate-900 text-white pt-20 pb-10">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:col-span-4 gap-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-start">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-start">
         <div className="max-w-xs">
           <h2 className="text-4xl font-brand text-blue-400 mb-6">Mar de Cheiro</h2>
           <p className="text-slate-400">Especialistas em lavanderia premium e self-service.</p>
@@ -771,6 +830,7 @@ export default function App() {
       <Header />
       <Hero />
       <Structure />
+      <PremiumService />
       <WhatsAppNotice />
       <Plans />
       <ScheduleCollection />
